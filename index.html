@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Reliance Care Solutions - Compassionate care and support for individuals and families in Northwest Ohio.">
+    <title>Reliance Care Solutions | Compassionate Care in Toledo</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400&amp;family=Inter:wght@500&amp;family=Inter:wght@600&amp;family=Playfair+Display:wght@600&amp;display=swap');
+        
+        :root {
+            --primary-blue: 37 99 235;
+        }
+
+        .tailwind-loaded * {
+            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
+        }
+    
+          .hero-bg {
+            background-image: 
+                linear-gradient(rgba(15, 23, 42, 0.45), rgba(15, 23, 42, 0.55)),
+                url('https://i.postimg.cc/SKttpgDH/Reliance-Care-Solutions.webp');
+
+            background-size: cover;
+            /*background-position: center;
+            background-attachment: scroll;*/
+        }
+
+        @media (min-width: 768px) {
+            .hero-bg {
+                /*background-attachment: fixed;
+            }*/
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: rgb(37 99 235);
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover:after {
+            width: 100%;
+        }
+
+        .service-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0), 0 8px 10px -6px rgb(0 0 0);
+        }
+
+        .feature-dot {
+            width: 6px;
+            height: 6px;
+            background-color: rgb(16 185 129);
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .section-header {
+            position: relative;
+        }
+
+        .section-header:after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(to right, rgb(37 99 235), rgb(16 185 129));
+            bottom: -8px;
+            left: 0;
+        }
+
+        .floating-icon {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .map-container {
+            filter: contrast(1.05) saturate(1.1);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0);
+        }
+
+        .form-input {
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .form-input:focus {
+            outline: none;
+            box-shadow: 
+                0 0 0 3px rgba(37, 99, 235, 0.3),
+                0 10px 15px -3px rgb(37 99 235);
+        }
+
+        .logo-spin {
+            transition: transform 0.4s cubic-bezier(0.68, -0.3, 0.32, 1.3);
+        }
+
+        .mobile-menu {
+            animation: slideDown 0.3s ease forwards;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .stat-number {
+            font-variant-numeric: tabular-nums;
+        }
+    </style>
+</head>
+<body class="tailwind-loaded font-sans text-slate-700 bg-white overflow-x-hidden">
+    
+    <!-- NAVBAR -->
+    <nav id="navbar" 
+         class="bg-white border-b border-slate-100 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-screen-2xl mx-auto">
+            <div class="px-8 py-5 flex items-center justify-between">
+                
+                <!-- LOGO -->
+                <div onclick="navigateToSection('hero')" 
+                     class="flex items-center gap-x-3 cursor-pointer">
+                    <img src="https://i.postimg.cc/02xK9PMv/logo-removebg-preview.png" 
+                         alt="Reliance Care Solutions Logo" 
+                         class="h-10 w-auto logo-spin">
+                    <div>
+                        <span class="font-semibold text-2xl tracking-tighter text-slate-900">Reliance</span>
+                    </div>
+                </div>
+
+                <!-- DESKTOP MENU -->
+                <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
+                    <a href="#hero" 
+                       onclick="navigateToSection('hero'); return false"
+                       class="nav-link text-slate-600 hover:text-slate-900">Home</a>
+                    <a href="#about" 
+                       onclick="navigateToSection('about'); return false"
+                       class="nav-link text-slate-600 hover:text-slate-900">About Us</a>
+                    <a href="#services" 
+                       onclick="navigateToSection('services'); return false"
+                       class="nav-link text-slate-600 hover:text-slate-900">Services</a>
+                    <a href="#youth" 
+                       onclick="navigateToSection('youth'); return false"
+                       class="nav-link text-slate-600 hover:text-slate-900">Youth Programs</a>
+                    <a href="#why" 
+                       onclick="navigateToSection('why'); return false"
+                       class="nav-link text-slate-600 hover:text-slate-900">Why Choose Us</a>
+                    <a href="#contact" 
+                       onclick="navigateToSection('contact'); return false"
+                       class="nav-link text-slate-600 hover:text-slate-900">Contact</a>
+                </div>
+
+                <div class="flex items-center gap-x-4">
+                    <!-- CTA BUTTON -->
+                    <button onclick="navigateToSection('contact')" 
+                            class="bg-blue-600 hover:bg-blue-700 transition-colors text-white text-sm font-semibold px-6 py-2.5 rounded-2xl flex items-center gap-x-2 shadow-sm">
+                        <i class="fa-solid fa-phone text-xs"></i>
+                        <span>Get Support</span>
+                    </button>
+
+                    <!-- MOBILE HAMBURGER -->
+                    <button id="mobile-menu-button"
+                            class="md:hidden w-10 h-10 flex items-center justify-center text-slate-700 hover:text-blue-600 transition-colors">
+                        <i id="hamburger-icon" class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- MOBILE MENU -->
+        <div id="mobile-menu" 
+             class="hidden md:hidden max-w-screen-2xl mx-auto bg-white border-t px-8 py-6 mobile-menu">
+            <div class="flex flex-col gap-y-5 text-base font-medium">
+                <a href="#hero" 
+                   onclick="toggleMobileMenu()" 
+                   class="flex items-center gap-x-3 py-2 text-slate-700 hover:text-blue-600">
+                    <i class="fa-regular fa-house w-5"></i>
+                    <span>Home</span>
+                </a>
+                <a href="#about" 
+                   onclick="toggleMobileMenu()" 
+                   class="flex items-center gap-x-3 py-2 text-slate-700 hover:text-blue-600">
+                    <i class="fa-regular fa-circle-info w-5"></i>
+                    <span>About Us</span>
+                </a>
+                <a href="#services" 
+                   onclick="toggleMobileMenu()" 
+                   class="flex items-center gap-x-3 py-2 text-slate-700 hover:text-blue-600">
+                    <i class="fa-regular fa-list-check w-5"></i>
+                    <span>Services</span>
+                </a>
+                <a href="#youth" 
+                   onclick="toggleMobileMenu()" 
+                   class="flex items-center gap-x-3 py-2 text-slate-700 hover:text-blue-600">
+                    <i class="fa-regular fa-children w-5"></i>
+                    <span>Youth Programs</span>
+                </a>
+                <a href="#why" 
+                   onclick="toggleMobileMenu()" 
+                   class="flex items-center gap-x-3 py-2 text-slate-700 hover:text-blue-600">
+                    <i class="fa-regular fa-heart w-5"></i>
+                    <span>Why Choose Us</span>
+                </a>
+                <a href="#contact" 
+                   onclick="toggleMobileMenu()" 
+                   class="flex items-center gap-x-3 py-2 text-slate-700 hover:text-blue-600">
+                    <i class="fa-regular fa-envelope w-5"></i>
+                    <span>Contact</span>
+                </a>
+                
+                <div class="pt-6 border-t">
+                    <button onclick="navigateToSection('contact'); toggleMobileMenu()" 
+                            class="w-full bg-blue-600 text-white font-semibold py-4 rounded-3xl flex items-center justify-center gap-x-3">
+                        <i class="fa-solid fa-handshake"></i>
+                        <span>Request Services Today</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header id="hero" 
+            class="hero-bg h-screen flex items-center relative">
+        <div class="max-w-screen-2xl mx-auto px-8 md:px-16">
+            <div class="max-w-2xl">
+                <div class="inline-flex items-center gap-x-2 bg-white/90 backdrop-blur-md text-blue-700 text-xs font-semibold tracking-[0.125em] px-4 py-2 rounded-3xl mb-6 shadow">
+                    <div class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
+                    TOLEDO • NORTHWEST OHIO
+                </div>
+                
+                <h1 class="text-5xl md:text-6xl font-semibold leading-none tracking-tighter text-white mb-4">
+                    Compassionate Care &amp;<br>Support for Every Family
+                </h1>
+                
+                <p class="text-xl text-white/90 max-w-md mb-10">
+                    Structured, professional services that empower individuals 
+                    and strengthen families in our community.
+                </p>
+                
+                <div class="flex items-center gap-x-4">
+                    <button onclick="navigateToSection('contact')" 
+                            class="bg-white text-blue-700 hover:bg-emerald-50 font-semibold px-8 py-4 rounded-3xl flex items-center gap-x-3 shadow-lg shadow-blue-950/10">
+                        <i class="fa-solid fa-arrow-right"></i>
+                        <span>Request Services</span>
+                    </button>
+                    
+                    <button onclick="navigateToSection('about')" 
+                            class="border border-white/70 hover:border-white text-white font-medium px-8 py-4 rounded-3xl flex items-center gap-x-3 backdrop-blur-md">
+                        <span>Learn more</span>
+                    </button>
+                </div>
+                
+                <!-- TRUST BAR -->
+                <div class="mt-16 flex items-center gap-x-8 text-white/70 text-xs">
+                    <div class="flex -space-x-3">
+                        <div class="w-6 h-6 bg-white rounded-2xl flex items-center justify-center text-[10px] shadow text-blue-700">★</div>
+                        <div class="w-6 h-6 bg-white rounded-2xl flex items-center justify-center text-[10px] shadow text-blue-700">★</div>
+                    </div>
+                    <div>
+                        <span class="font-medium">4.98 • </span> 
+                        <span class="text-white/60">Based on 187 families</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FLOATING BADGE -->
+        <div class="hidden xl:flex absolute bottom-12 right-12 bg-white shadow-xl rounded-3xl px-5 py-3 items-center gap-x-3">
+            <div class="text-emerald-500">
+                <i class="fa-solid fa-shield-halved text-xl"></i>
+            </div>
+            <div class="text-xs leading-none">
+                <div class="font-semibold text-slate-900">Ohio Licensed</div>
+                <div class="text-slate-500">Since 2018</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- WHO WE ARE -->
+    <section id="about" 
+             class="max-w-screen-2xl mx-auto px-8 md:px-16 py-24">
+        <div class="grid md:grid-cols-12 gap-16 items-center">
+            <!-- LEFT IMAGE -->
+            <div class="md:col-span-5">
+                <div class="relative">
+                    <img src="https://i.postimg.cc/Ls7vWn8Q/Reliance-Care-Solutions-2-(1).webp" 
+                         alt="Reliance Care team supporting a family" 
+                         class="rounded-3xl shadow-2xl w-full aspect-video object-cover">
+                    <!-- OVERLAY DECOR -->
+                    <div class="absolute -bottom-4 -right-4 bg-white shadow p-4 rounded-3xl max-w-[180px]">
+                        <div class="flex items-center gap-x-3">
+                            <div class="flex-shrink-0 w-9 h-9 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center">
+                                <i class="fa-solid fa-users"></i>
+                            </div>
+                            <div class="text-xs">
+                                <div class="font-semibold">Serving 240+</div>
+                                <div class="text-slate-500">Individuals &amp; families</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- RIGHT CONTENT -->
+            <div class="md:col-span-7">
+                <span class="px-3 py-1.5 bg-blue-100 text-blue-700 text-xs font-semibold rounded-3xl">WHO WE ARE</span>
+                <h2 class="section-header text-4xl font-semibold tracking-tighter text-slate-900 mt-3 mb-6">
+                    Caring for our community,<br>one family at a time
+                </h2>
+                <div class="prose text-slate-600 max-w-none">
+                    <p class="text-lg"style="text-align: justify; line-height:1.7;">
+ This will make the text look cleaner and easier to read.
+</p>>
+                        Reliance Care Solutions was founded in Toledo with a simple mission: 
+                        deliver high-quality, compassionate support services that honor the dignity 
+                        of every individual and strengthen families.
+                    </p>
+                    <p>
+                        We specialize in structured programs for children, youth, and adults with 
+                        intellectual and developmental disabilities. Our team of licensed professionals 
+                        works hand-in-hand with families to create personalized plans that promote 
+                        independence, growth, and joy.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-8 mt-12">
+                    <div class="flex gap-4">
+                        <span class="text-4xl font-semibold text-emerald-500">12</span>
+                        <div>
+                            <div class="font-medium">Years of service</div>
+                            <div class="text-xs text-slate-500">In Northwest Ohio</div>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <span class="text-4xl font-semibold text-emerald-500">98</span>
+                        <div>
+                            <div class="font-medium">% Family satisfaction</div>
+                            <div class="text-xs text-slate-500">2024 survey</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button onclick="navigateToSection('contact')" 
+                        class="mt-10 flex items-center gap-x-2 text-blue-600 font-medium group">
+                    <span class="group-hover:underline">Meet our team</span>
+                    <i class="fa-regular fa-arrow-right text-xs transition-transform group-hover:translate-x-1"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" 
+             class="bg-slate-50 py-24">
+        <div class="max-w-screen-2xl mx-auto px-8 md:px-16">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12">
+                <div>
+                    <span class="text-xs font-semibold tracking-widest bg-white px-4 py-2 rounded-3xl shadow text-slate-500">SERVICES</span>
+                </div>
+                <h2 class="text-4xl font-semibold tracking-tighter mt-3 md:mt-0">Comprehensive care programs</h2>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                
+                <!-- Service Card 1 -->
+                <div class="service-card bg-white rounded-3xl shadow p-6">
+                    <div class="h-10 w-10 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-5">
+                        <i class="fa-solid fa-bed"></i>
+                    </div>
+                    <h3 class="font-semibold mb-1">Respite Services</h3>
+                    <p class="text-sm text-slate-500 line-clamp-3">Temporary relief for caregivers with professional in-home or facility support.</p>
+                </div>
+                
+                <!-- Service Card 2 -->
+                <div class="service-card bg-white rounded-3xl shadow p-6">
+                    <div class="h-10 w-10 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-5">
+                        <i class="fa-solid fa-sun"></i>
+                    </div>
+                    <h3 class="font-semibold mb-1">Adult Day Services</h3>
+                    <p class="text-sm text-slate-500 line-clamp-3">Engaging daily programs focused on socialization, skills, and wellness.</p>
+                </div>
+                
+                <!-- Service Card 3 -->
+                <div class="service-card bg-white rounded-3xl shadow p-6">
+                    <div class="h-10 w-10 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-5">
+                        <i class="fa-solid fa-people-group"></i>
+                    </div>
+                    <h3 class="font-semibold mb-1">Community Activities</h3>
+                    <p class="text-sm text-slate-500 line-clamp-3">Group outings, workshops and recreational events for connection.</p>
+                </div>
+                
+                <!-- Service Card 4 -->
+                <div class="service-card bg-white rounded-3xl shadow p-6">
+                    <div class="h-10 w-10 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-5">
+                        <i class="fa-solid fa-briefcase"></i>
+                    </div>
+                    <h3 class="font-semibold mb-1">Vocational Rehab</h3>
+                    <p class="text-sm text-slate-500 line-clamp-3">Job skills training and supported employment opportunities.</p>
+                </div>
+                
+                <!-- Service Card 5 -->
+                <div class="service-card bg-white rounded-3xl shadow p-6">
+                    <div class="h-10 w-10 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-5">
+                        <i class="fa-solid fa-horse"></i>
+                    </div>
+                    <h3 class="font-semibold mb-1">Animal Therapy</h3>
+                    <p class="text-sm text-slate-500 line-clamp-3">Therapeutic interactions with horses and other animals.</p>
+                </div>
+                
+                <!-- Service Card 6 -->
+                <div class="service-card bg-white rounded-3xl shadow p-6">
+                    <div class="h-10 w-10 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-5">
+                        <i class="fa-solid fa-stethoscope"></i>
+                    </div>
+                    <h3 class="font-semibold mb-1">On-Call Nursing</h3>
+                    <p class="text-sm text-slate-500 line-clamp-3">24/7 access to licensed nursing support.</p>
+                </div>
+                
+                <!-- Service Card 7 -->
+                <div class="service-card bg-white rounded-3xl shadow p-6">
+                    <div class="h-10 w-10 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-5">
+                        <i class="fa-solid fa-home"></i>
+                    </div>
+                    <h3 class="font-semibold mb-1">Group Homes</h3>
+                    <p class="text-sm text-slate-500 line-clamp-3">Safe, structured residential care for children and youth.</p>
+                </div>
+                
+                <!-- Service Card 8 -->
+                <div class="service-card bg-white rounded-3xl shadow p-6">
+                    <div class="h-10 w-10 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-5">
+                        <i class="fa-solid fa-car"></i>
+                    </div>
+                    <h3 class="font-semibold mb-1">Non-Medical Transport</h3>
+                    <p class="text-sm text-slate-500 line-clamp-3">Safe transportation to appointments and activities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- YOUTH PROGRAMS -->
+    <section id="youth" 
+             class="max-w-screen-2xl mx-auto px-8 md:px-16 py-24 bg-white">
+        <div class="grid md:grid-cols-12 gap-16">
+            <div class="md:col-span-5">
+                <img src="https://i.postimg.cc/yNf281YG/Group-activities-for-those-with-disabilities-in-toledo.jpg" 
+                     alt="Youth participating in group activities" 
+                     class="rounded-3xl shadow-2xl">
+            </div>
+            <div class="md:col-span-7">
+                <span class="inline text-xs font-semibold px-3 py-1 bg-amber-100 text-amber-600 rounded-3xl">FOR OUR YOUTH</span>
+                <h2 class="text-4xl font-semibold tracking-tighter mt-3">Programs that build confidence and joy</h2>
+                
+                <ul class="mt-10 space-y-8">
+                    <li class="flex gap-5">
+                        <div class="flex-shrink-0 mt-1">
+                            <span class="feature-dot"></span>
+                        </div>
+                        <div>
+                            <h4 class="font-medium">Emotional &amp; Social Support</h4>
+                            <p class="text-sm text-slate-500">Small group sessions focused on emotional regulation and friendship building.</p>
+                        </div>
+                    </li>
+                    <li class="flex gap-5">
+                        <div class="flex-shrink-0 mt-1">
+                            <span class="feature-dot"></span>
+                        </div>
+                        <div>
+                            <h4 class="font-medium">Developmental Skill Building</h4>
+                            <p class="text-sm text-slate-500">Tailored activities that improve communication, motor skills and independence.</p>
+                        </div>
+                    </li>
+                    <li class="flex gap-5">
+                        <div class="flex-shrink-0 mt-1">
+                            <span class="feature-dot"></span>
+                        </div>
+                        <div>
+                            <h4 class="font-medium">Inclusive Recreation</h4>
+                            <p class="text-sm text-slate-500">Adaptive sports, arts, music and seasonal events for all abilities.</p>
+                        </div>
+                    </li>
+                </ul>
+                
+                <div class="mt-12 bg-blue-50 border border-blue-100 rounded-3xl p-6 flex items-center gap-4">
+                    <i class="fa-regular fa-lightbulb text-3xl text-blue-500"></i>
+                    <div class="text-sm">
+                        <span class="font-semibold">CANS Assessments</span> 
+                        <span class="text-slate-500">included to identify strengths and needs for every child</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section id="why" 
+             class="py-24 bg-gradient-to-b from-slate-50 to-white">
+        <div class="max-w-screen-2xl mx-auto px-8 md:px-16">
+            <div class="text-center max-w-md mx-auto mb-16">
+                <span class="text-xs uppercase font-semibold text-emerald-600 tracking-widest">OUR PROMISE</span>
+                <h2 class="text-4xl font-semibold tracking-tighter mt-2">Why families trust Reliance</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white border border-slate-100 rounded-3xl p-7">
+                    <i class="fa-solid fa-user-doctor text-3xl text-blue-500 mb-6"></i>
+                    <h3 class="font-semibold text-lg">Experienced Care Team</h3>
+                    <p class="text-slate-500 text-sm mt-2">Licensed nurses, therapists, and support staff with specialized training.</p>
+                </div>
+                <div class="bg-white border border-slate-100 rounded-3xl p-7">
+                    <i class="fa-solid fa-file-signature text-3xl text-blue-500 mb-6"></i>
+                    <h3 class="font-semibold text-lg">Individualized Plans</h3>
+                    <p class="text-slate-500 text-sm mt-2">Every plan is custom-built around your loved one's unique strengths and goals.</p>
+                </div>
+                <div class="bg-white border border-slate-100 rounded-3xl p-7">
+                    <i class="fa-solid fa-shield-halved text-3xl text-blue-500 mb-6"></i>
+                    <h3 class="font-semibold text-lg">Safe Environments</h3>
+                    <p class="text-slate-500 text-sm mt-2">Fully vetted staff and secure facilities that meet or exceed state standards.</p>
+                </div>
+                <div class="bg-white border border-slate-100 rounded-3xl p-7">
+                    <i class="fa-solid fa-handshake text-3xl text-blue-500 mb-6"></i>
+                    <h3 class="font-semibold text-lg">Family Partnership</h3>
+                    <p class="text-slate-500 text-sm mt-2">We consider families as equal partners in every care decision.</p>
+                </div>
+                <div class="bg-white border border-slate-100 rounded-3xl p-7">
+                    <i class="fa-solid fa-tree-city text-3xl text-blue-500 mb-6"></i>
+                    <h3 class="font-semibold text-lg">Community Integration</h3>
+                    <p class="text-slate-500 text-sm mt-2">Programs designed to connect individuals with their local community.</p>
+                </div>
+                <div class="bg-white border border-slate-100 rounded-3xl p-7">
+                    <i class="fa-solid fa-clock text-3xl text-blue-500 mb-6"></i>
+                    <h3 class="font-semibold text-lg">24/7 Availability</h3>
+                    <p class="text-slate-500 text-sm mt-2">On-call support when you need it most.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="max-w-screen-2xl mx-auto px-8 md:px-16 py-24 bg-slate-900 text-white">
+        <div class="max-w-2xl mx-auto text-center">
+            <h2 class="text-3xl font-semibold tracking-tighter mb-12">What families are saying</h2>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <div class="bg-slate-800 rounded-3xl p-7">
+                <div class="flex gap-x-1 text-amber-400 mb-6">
+                    ★★★★☆
+                </div>
+                <p class="italic text-slate-300 text-sm">
+                    "Reliance helped our son develop confidence and friendships. 
+                    The staff genuinely cares about every child."
+                </p>
+                <div class="mt-8 flex items-center gap-x-3">
+                    <div class="w-8 h-8 bg-slate-700 rounded-2xl flex items-center justify-center text-xs font-mono">SJ</div>
+                    <div>
+                        <div class="text-sm font-medium">Sarah Johnson</div>
+                        <div class="text-xs text-slate-400">Mother of Marcus • 8 months ago</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-slate-800 rounded-3xl p-7">
+                <div class="flex gap-x-1 text-amber-400 mb-6">
+                    ★★★★★
+                </div>
+                <p class="italic text-slate-300 text-sm">
+                    "The respite care gives us the break we need while knowing our daughter 
+                    is safe and engaged. Truly a blessing."
+                </p>
+                <div class="mt-8 flex items-center gap-x-3">
+                    <div class="w-8 h-8 bg-slate-700 rounded-2xl flex items-center justify-center text-xs font-mono">MT</div>
+                    <div>
+                        <div class="text-sm font-medium">Michael Torres</div>
+                        <div class="text-xs text-slate-400">Father of Isabella • 3 weeks ago</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-slate-800 rounded-3xl p-7">
+                <div class="flex gap-x-1 text-amber-400 mb-6">
+                    ★★★★☆
+                </div>
+                <p class="italic text-slate-300 text-sm">
+                    "The transportation team is always on time and so kind. 
+                    It makes a huge difference in our weekly routine."
+                </p>
+                <div class="mt-8 flex items-center gap-x-3">
+                    <div class="w-8 h-8 bg-slate-700 rounded-2xl flex items-center justify-center text-xs font-mono">LR</div>
+                    <div>
+                        <div class="text-sm font-medium">Linda Rodriguez</div>
+                        <div class="text-xs text-slate-400">Caregiver for Robert • 5 months ago</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <div class="bg-gradient-to-r from-blue-600 to-emerald-500 py-16">
+        <div class="max-w-screen-2xl mx-auto px-8 text-center">
+            <div class="max-w-lg mx-auto">
+                <h2 class="text-white text-3xl font-semibold tracking-tighter">Start the journey toward greater support today</h2>
+                <button onclick="navigateToSection('contact')" 
+                        class="mt-8 bg-white text-slate-950 font-semibold text-lg px-10 py-5 rounded-3xl inline-flex items-center gap-x-4 hover:scale-105 transition-transform">
+                    <span>Request a consultation</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTACT -->
+    <section id="contact" 
+             class="max-w-screen-2xl mx-auto px-8 md:px-16 py-24">
+        <div class="grid md:grid-cols-12 gap-16">
+            <!-- FORM -->
+            <div class="md:col-span-7">
+                <h2 class="text-4xl font-semibold tracking-tighter">Get in touch with us</h2>
+                <p class="text-slate-500 mt-3">Our team typically responds within 24 hours.</p>
+                
+                <form id="contact-form" 
+                      class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="col-span-1">
+                        <label class="block text-xs font-medium mb-2 text-slate-500">YOUR NAME</label>
+                        <input type="text" id="name" 
+                               class="form-input w-full bg-white border border-slate-200 focus:border-blue-300 rounded-3xl px-5 py-4 text-sm"
+                               placeholder="Maria Rodriguez" required>
+                    </div>
+                    <div class="col-span-1">
+                        <label class="block text-xs font-medium mb-2 text-slate-500">PHONE NUMBER</label>
+                        <input type="tel" id="phone" 
+                               class="form-input w-full bg-white border border-slate-200 focus:border-blue-300 rounded-3xl px-5 py-4 text-sm"
+                               placeholder="(419) 555-0192" required>
+                    </div>
+                    <div class="col-span-2">
+                        <label class="block text-xs font-medium mb-2 text-slate-500">EMAIL ADDRESS</label>
+                        <input type="email" id="email" 
+                               class="form-input w-full bg-white border border-slate-200 focus:border-blue-300 rounded-3xl px-5 py-4 text-sm"
+                               placeholder="you@email.com" required>
+                    </div>
+                    <div class="col-span-2">
+                        <label class="block text-xs font-medium mb-2 text-slate-500">HOW CAN WE HELP?</label>
+                        <textarea id="message" rows="4"
+                                  class="form-input w-full bg-white border border-slate-200 focus:border-blue-300 rounded-3xl px-5 py-4 text-sm resize-none"
+                                  placeholder="Tell us about your needs..."></textarea>
+                    </div>
+                    
+                    <div class="col-span-2 pt-4">
+                        <button type="submit"
+                                class="w-full bg-slate-900 hover:bg-black transition-colors text-white font-semibold py-5 rounded-3xl flex items-center justify-center gap-x-3">
+                            <span>Send Message</span>
+                            <i class="fa-regular fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- CONTACT INFO + MAP -->
+            <div class="md:col-span-5">
+                <div class="bg-white border rounded-3xl shadow p-7 mb-8">
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <i class="fa-regular fa-phone text-blue-500 mt-1"></i>
+                            <div>
+                                <div class="font-medium text-sm">Call us directly</div>
+                                <a href="tel:4195550198" 
+                                   class="text-blue-600 font-semibold">(419) 555-0198</a>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <i class="fa-regular fa-envelope text-blue-500 mt-1"></i>
+                            <div>
+                                <div class="font-medium text-sm">Email our team</div>
+                                <a href="mailto:info@reliancecaresolutions.com" 
+                                   class="text-blue-600 font-semibold">info@reliancecaresolutions.com</a>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <i class="fa-regular fa-location-dot text-blue-500 mt-1"></i>
+                            <div>
+                                <div class="font-medium text-sm">Visit our office</div>
+                                <div class="text-sm text-slate-600">
+                                    2845 West Sylvania Ave<br>
+                                    Suite 120, Toledo, OH 43615
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- MAP -->
+                <div class="map-container">
+                    <iframe width="100%" 
+                            height="320" 
+                            frameborder="0" 
+                            scrolling="no" 
+                            marginheight="0" 
+                            marginwidth="0" 
+                            src="https://www.openstreetmap.org/export/embed.html?bbox=-83.62%2C41.62%2C-83.45%2C41.68&amp;layer=mapnik&amp;marker=41.6528%2C-83.5379">
+                    </iframe>
+                </div>
+                <p class="text-[10px] text-slate-400 text-center mt-3">Toledo, Ohio • Northwest Ohio service area</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 text-slate-300">
+        <div class="max-w-screen-2xl mx-auto px-8 md:px-16 pt-16 pb-8">
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-y-12">
+                <!-- COL 1 -->
+                <div>
+                    <div class="flex items-center gap-x-3 mb-6">
+                        <img src="https://i.postimg.cc/02xK9PMv/logo-removebg-preview.png" 
+                             alt="Reliance Logo" 
+                             class="h-7 w-auto brightness-0 invert">
+                        <span class="text-white font-semibold text-xl tracking-tighter">Reliance</span>
+                    </div>
+                    <p class="text-xs text-slate-400 max-w-[180px]">
+                        Compassionate care that makes a difference.
+                    </p>
+                </div>
+                
+                <!-- COL 2 -->
+                <div>
+                    <div class="uppercase text-xs tracking-widest font-medium mb-4 text-slate-400">Company</div>
+                    <div class="space-y-3 text-sm">
+                        <div onclick="navigateToSection('about')" 
+                             class="cursor-pointer hover:text-white">About Us</div>
+                        <div onclick="navigateToSection('why')" 
+                             class="cursor-pointer hover:text-white">Why Us</div>
+                        <div onclick="navigateToSection('contact')" 
+                             class="cursor-pointer hover:text-white">Careers</div>
+                    </div>
+                </div>
+                
+                <!-- COL 3 -->
+                <div>
+                    <div class="uppercase text-xs tracking-widest font-medium mb-4 text-slate-400">Services</div>
+                    <div class="space-y-3 text-sm">
+                        <div class="cursor-pointer hover:text-white">Respite Care</div>
+                        <div class="cursor-pointer hover:text-white">Youth Programs</div>
+                        <div class="cursor-pointer hover:text-white">Adult Day Services</div>
+                        <div class="cursor-pointer hover:text-white">Transportation</div>
+                    </div>
+                </div>
+                
+                <!-- COL 4 -->
+                <div>
+                    <div class="uppercase text-xs tracking-widest font-medium mb-4 text-slate-400">Resources</div>
+                    <div class="space-y-3 text-sm">
+                        <div class="cursor-pointer hover:text-white">CANS Assessment Info</div>
+                        <div class="cursor-pointer hover:text-white">Staff Training Portal</div>
+                        <div class="cursor-pointer hover:text-white">Community Partners</div>
+                    </div>
+                </div>
+                
+                <!-- COL 5 -->
+                <div class="col-span-2 md:col-span-1">
+                    <div class="bg-slate-900 rounded-3xl p-5 text-xs">
+                        <div class="flex items-center gap-x-2 mb-4">
+                            <i class="fa-regular fa-circle-check text-emerald-400"></i>
+                            <span class="font-medium text-white">Ohio Department of Developmental Disabilities</span>
+                        </div>
+                        <div class="text-[10px] text-slate-400">Licensed • Insured • Background-checked staff</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- BOTTOM BAR -->
+            <div class="border-t border-slate-900 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center text-xs gap-y-3">
+                <div class="text-slate-400">
+                    &copy; 2026 Reliance Care Solutions. All rights reserved Developed By Zannatul.
+                </div>
+                <div class="flex items-center gap-x-6 text-slate-400">
+                    <a href="#" class="hover:text-white"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="hover:text-white"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="hover:text-white"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+                <div class="text-slate-400 flex items-center gap-x-1 text-[10px]">
+                    <span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
+                    Serving Toledo &amp; Northwest Ohio
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tailwind already loaded via CDN
+        console.log('%c✅ Reliance Care Solutions website ready. Compassionate design loaded.', 'font-family:monospace;color:#10b981;font-size:10px')
+        
+        // Mobile menu toggle
+        const mobileBtn = document.getElementById("mobile-menu-button")
+        const mobileMenu = document.getElementById("mobile-menu")
+        const hamburgerIcon = document.getElementById("hamburger-icon")
+        
+        function toggleMobileMenu() {
+            if (mobileMenu.classList.contains("hidden")) {
+                mobileMenu.classList.remove("hidden")
+                hamburgerIcon.classList.replace("fa-bars", "fa-xmark")
+            } else {
+                mobileMenu.classList.add("hidden")
+                hamburgerIcon.classList.replace("fa-xmark", "fa-bars")
+            }
+        }
+        
+        mobileBtn.addEventListener("click", toggleMobileMenu)
+        
+        // Smooth scroll helper
+        function navigateToSection(sectionId) {
+            const element = document.getElementById(sectionId)
+            if (element) {
+                const navHeight = 80
+                const elementPosition = element.getBoundingClientRect().top
+                const offsetPosition = elementPosition + window.scrollY - navHeight
+                
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                })
+                
+                // Close mobile menu if open
+                if (!mobileMenu.classList.contains("hidden")) {
+                    toggleMobileMenu()
+                }
+            }
+        }
+        
+        // Form handling
+        const contactForm = document.getElementById("contact-form")
+        
+        contactForm.addEventListener("submit", function(e) {
+            e.preventDefault()
+            
+            const submitBtn = contactForm.querySelector("button[type='submit']")
+            const originalText = submitBtn.innerHTML
+            
+            // Fake loading state
+            submitBtn.style.pointerEvents = "none"
+            submitBtn.innerHTML = `
+                <span class="inline-block animate-spin mr-2">⟳</span>
+                Sending...
+            `
+            setTimeout(() => {
+                // Success state
+                submitBtn.classList.remove("bg-slate-900")
+                submitBtn.classList.add("bg-emerald-500")
+                submitBtn.innerHTML = `
+                    <i class="fa-regular fa-circle-check mr-2"></i>
+                    Thank you!
+                `
+                
+                // Reset form
+                contactForm.reset()
+                
+                // Return to original after 3 seconds
+                setTimeout(() => {
+                    submitBtn.classList.add("bg-slate-900")
+                    submitBtn.classList.remove("bg-emerald-500")
+                    submitBtn.innerHTML = originalText
+                    submitBtn.style.pointerEvents = "all"
+                }, 3000)
+            }, 1350)
+        })
+        
+        // Navbar scroll effect
+        function handleScroll() {
+            const navbar = document.getElementById("navbar")
+            if (window.scrollY > 50) {
+                navbar.classList.add("shadow-md")
+            } else {
+                navbar.classList.remove("shadow-md")
+            }
+        }
+        
+        window.addEventListener("scroll", handleScroll)
+        
+        // Keyboard shortcut hint in console
+        console.log('%c👋 Press "/" to focus the contact form (demo only)', 'color:#64748b;font-size:10.5px')
+        
+        // Accessibility - allow / key to jump to form
+        document.addEventListener("keydown", function(e) {
+            if (e.key === "/" && document.activeElement.tagName === "BODY") {
+                e.preventDefault()
+                const contactSection = document.getElementById("contact")
+                if (contactSection) {
+                    navigateToSection("contact")
+                    // Focus first input
+                    setTimeout(() => {
+                        const firstInput = document.getElementById("name")
+                        if (firstInput) firstInput.focus()
+                    }, 1200)
+                }
+            }
+        })
+    </script>
+</body>
+</html>
